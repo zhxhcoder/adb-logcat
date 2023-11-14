@@ -12,7 +12,7 @@ sdk\platform-tools 目录中，文件以adb开头的三个文件放到adb目录�
 步骤二：输入：cd C:\adb-logcat\adb（进入adb目录）
 步骤三：输入：.\adb.exe devices -l（l是L检查手机是否与ADB建立联系，输出设备信息代表成功）
 步骤四：输入：.\adb.exe logcat -c（清除日志缓存）
-步骤五：输入：.\adb.exe logcat CITICSLOG-CSStatsAgent-:D *:S（输出特定日志并过滤其他无关日志）
+步骤五：输入：.\adb.exe logcat zhxhDebug-:D *:S（输出特定日志并过滤其他无关日志）
 
 **********************************************************************
 
