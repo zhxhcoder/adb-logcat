@@ -1,3 +1,5 @@
+因为公司测试大多采用Windows电脑，而且往往不会安装Android开发环境，所以为方便测试人员测试埋点信息，就把相关工具集成，双击adb-run.bat就可以直接实时看日志输出。
+
 sdk\platform-tools 目录中，文件以adb开头的三个文件放到adb目录中
 
 中命令行或者powershell中，cd 到adb 目录，
@@ -43,3 +45,19 @@ echo 埋点宏路日志：
 当出现以上信息时，表示设备未与ADB建立有效连接
 
 
+**********************************************************************
+测试一定要测试混淆后的效果，但是因为以下代码混淆后app将不再显示log。
+
+#混淆优化，混淆后log函数自动去掉
+#-dontoptimize不要优化的意思，导致混淆优化失效，所以不能有这个配置
+-assumenosideeffects class android.util.Log {
+	public static boolean isLoggable(java.lang.String, int);
+	public static int v(...);
+	public static int i(...);
+	public static int w(...);
+	public static int d(...);
+	public static int e(...);
+}
+
+可以删除该段代码，但是就需要单独给测试一个包，而且也可能会影响其他功能，排除。
+可以System.out.println代替，用一个特殊的前缀，进行过滤，并客户端能配置是否展示日志，采用。
