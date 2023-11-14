@@ -11,4 +11,4 @@ echo 检测是否已连接手机：
 echo 手机连接成功：
 .\adb.exe logcat -c
 echo 埋点宏路日志：
-.\adb.exe logcat | findstr -i CITICSLOG-CSStatsAgent-act_name
+.\adb.exe logcat | findstr -i zhxhDebug
