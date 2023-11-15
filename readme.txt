@@ -16,7 +16,8 @@ sdk\platform-tools 目录中，文件以adb开头的三个文件放到adb目录�
 步骤四：输入：.\adb.exe logcat -c（清除日志缓存）
 步骤五：输入：.\adb.exe logcat zhxhDebug-:D *:S（输出特定日志并过滤其他无关日志）
 
-
+@echo off
+color 03
 chcp 65001
 cd .\.\adb
 echo 查看adb端口是否被占用：
